@@ -1,15 +1,21 @@
 package com.example.mvcapp.informacionEmpresa;
 
-public class MovimientoDinero {
+public class MovimientoDinero extends Empleado{
 
     private int monto;
     private String concepto;
-    private String usuario;
 
-    public void MovimientoDinero(int monto,String descripcion,String usuario){
+    private String empleado;
+
+    public MovimientoDinero(){
+        super();
+    }
+
+    public MovimientoDinero(int monto,String concepto){
+        this.empleado = super.getNombre();
         this.monto = monto;
-        this.concepto = descripcion;
-        this.setUsuario(usuario);
+        this.concepto = concepto;
+
     }
 
 
@@ -29,11 +35,12 @@ public class MovimientoDinero {
         this.concepto = descripcion;
     }
 
-    public String getUsuario() {
-        return usuario;
+
+    public String getEmpleado() {
+        return empleado;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setEmpleado(String empleado) {
+        this.empleado = empleado;
     }
 }
