@@ -1,11 +1,31 @@
 package com.example.mvcapp.informacionEmpresa;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Empresa")
 public class Empresa {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    @Column(name = "nombreEmpresa")
     private String nombreEmpresa;
+    @Column(name = "direccionEmpresa")
     private String direccionEmpresa;
+    @Column(name = "telefonoEmpresa")
     private int telefonoEmpresa;
+    @Column(name = "nitEmpresa")
     private int nitEmpresa;
 
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNombreEmpresa() {
         return nombreEmpresa;

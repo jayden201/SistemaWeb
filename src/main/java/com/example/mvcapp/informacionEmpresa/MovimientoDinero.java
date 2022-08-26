@@ -1,10 +1,19 @@
 package com.example.mvcapp.informacionEmpresa;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Empresa")
 public class MovimientoDinero extends Empleado{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    @Column(name = "monto")
     private int monto;
+    @Column(name = "concepto")
     private String concepto;
-
+    @Column(name = "empleado")
     private String empleado;
 
     public MovimientoDinero(){
@@ -18,6 +27,15 @@ public class MovimientoDinero extends Empleado{
 
     }
 
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getMonto() {
         return monto;
