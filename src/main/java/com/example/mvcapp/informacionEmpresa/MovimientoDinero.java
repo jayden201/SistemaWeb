@@ -20,6 +20,8 @@ public class MovimientoDinero extends Empleado{
         super();
     }
 
+
+
     public MovimientoDinero(int monto,String concepto){
         this.empleado = super.getNombre();
         this.monto = monto;
@@ -49,8 +51,8 @@ public class MovimientoDinero extends Empleado{
         return concepto;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.concepto = descripcion;
+    public void setConcepto(String concepto) {
+        this.concepto = concepto;
     }
 
 

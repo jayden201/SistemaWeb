@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 //indico que esta clase funciona como controlador
 @RestController
-public class empresaController {
+public class EmpresaController {
 
     //Agrego propiedad de tipo EmpresaService llamada empresa service para poder trabajar con la logica de negocio
     private EmpresaService empresaService;
 
     //Metodo COntructor que recibe como parametro el objeto EmpresaService y le pongo como nombre empresaService
     //para poder traer todos los metodos de la clase EmpresaService
-    public empresaController(EmpresaService empresaService){
+    public EmpresaController(EmpresaService empresaService){
         this.empresaService = empresaService;
     }
 
