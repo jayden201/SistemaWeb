@@ -4,6 +4,8 @@ import com.example.mvcapp.informacionEmpresa.Empresa;
 import com.example.mvcapp.repository.IEmpresaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 
 @Service
 public class EmpresaService {
@@ -34,5 +36,31 @@ public class EmpresaService {
         return response;
     }
 
+
+    //Metodo para realizar consulta (GET) con la ruta enterprise/{id}
+    public Empresa consultarEmpresaById(int Id){
+        Optional<Empresa> existe = this.empresaRepository.findById(Id);
+        if(existe.isPresent()){
+            return existe.get();
+        }
+        else {
+            return null;
+        }
+    }
+
+    //Metodo servicio para eliminar una empresa ingresando un Id
+    public Response deleteEmpresa(int Id){
+        Response response = new Response();
+        try{
+            this.empresaRepository.deleteById(Id);
+            response.setCode(200);
+            response.setMessage("Empresa con Id: " + Id + " Fue eliminada correctamente");
+            return response;
+        }catch (Exception ex){
+            response.setCode(500);
+            response.setMessage("Error Id: "+Id+" No existe");
+            return response;
+        }
+    }
 
 }
