@@ -63,4 +63,35 @@ public class EmpresaService {
         }
     }
 
+
+    //Metodo de servicio para actualizar empresa
+    public Response actualizarEmpresa(Empresa empresa){
+        Response response = new Response();
+
+        if(empresa.getId() <= 0){
+            response.setCode(500);
+            response.setMessage("Error id no existe");
+            return response;
+        }
+
+        Empresa existe = consultarEmpresaById(empresa.getId());
+        if(existe == null){
+            response.setCode(500);
+            response.setMessage("Error el usuario no existe en la base de datos");
+            return response;
+        }
+
+
+        //Actualiza los datos de cada atributo ingresado
+        existe.setNombreEmpresa(empresa.getNombreEmpresa());
+        existe.setDireccionEmpresa(empresa.getDireccionEmpresa());
+        existe.setTelefonoEmpresa(empresa.getTelefonoEmpresa());
+        existe.setNitEmpresa(empresa.getNitEmpresa());
+        this.empresaRepository.save(existe);
+        response.setCode(200);
+        response.setMessage("Empresa modificada correctamente");
+        return response;
+
+    }
+
 }
