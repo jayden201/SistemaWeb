@@ -1,7 +1,6 @@
 package com.example.mvcapp.services;
 
 import com.example.mvcapp.informacionEmpresa.Empleado;
-import com.example.mvcapp.informacionEmpresa.Empresa;
 import com.example.mvcapp.repository.IEmpleadoRepository;
 
 import java.util.Optional;
@@ -19,6 +18,13 @@ public class EmpleadoService {
         this.empleadoRepository.findAll();
         response.setCode(200);
         response.setMessage("datos Obtenidos correctamente");
+        return response;
+    }
+    public Response createEmpleado(Empleado empleado){
+        Response response = new Response();
+        this.empleadoRepository.save(empleado);
+        response.setCode(200);
+        response.setMessage("Empleado Registrada correctamente");
         return response;
     }
     //Metodo para realizar consulta (GET) con la ruta enterprise/{id}
@@ -68,6 +74,7 @@ public class EmpleadoService {
         existe.setIdEmpleado(empleado.getIdEmpleado());
         existe.setCorreoElectronico(empleado.getCorreoElectronico());
         existe.setRolDelEmpleado(empleado.getRolDelEmpleado());
+
 
         this.empleadoRepository.save(existe);
         response.setCode(200);
