@@ -24,6 +24,7 @@ public class EmpresaController {
         return this.empresaService.getEmpresa();
     }
 
+    //controlador para insertar una empresa nueva.
     @PostMapping("enterprises")
     public Response createEmpresa(@RequestBody Empresa request){
         return this.empresaService.createEmpresa(request);
@@ -39,6 +40,12 @@ public class EmpresaController {
     @DeleteMapping("enterprises/{id}")
     public Response deleteEmpresa(@PathVariable int id){
         return this.empresaService.deleteEmpresa(id);
+    }
+
+    //Controlador para actualizar datos que jala de EmpresaSercice el metodo actualizarEmpresa
+    @PutMapping("enterprises")
+    public Response actualizarEmpresa(@RequestBody Empresa empresa){
+        return this.empresaService.actualizarEmpresa(empresa);
     }
 
 
