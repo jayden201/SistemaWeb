@@ -16,7 +16,8 @@ public class Empleado {
     @Column(name = "correoElectronico")
     private String correoElectronico;
     @Column(name = "empresaEnQueTrabaja")
-    private String empresaEnQueTrabaja;
+    private Empresa empresaEnQueTrabaja;
+    // private Empresa empresaEnQueTrabaja;
     @Column(name = "rolDelEmpleado")
     private String rolDelEmpleado;
 
@@ -50,14 +51,6 @@ public class Empleado {
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
-    }
-
-    public String getEmpresaEnQueTrabaja() {
-        return empresaEnQueTrabaja;
-    }
-
-    public void setEmpresaEnQueTrabaja(String empresaEnQueTrabaja) {
-        this.empresaEnQueTrabaja = empresaEnQueTrabaja;
     }
 
     public String getRolDelEmpleado() {
