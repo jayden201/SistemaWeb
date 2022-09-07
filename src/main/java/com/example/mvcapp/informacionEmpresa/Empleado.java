@@ -62,5 +62,11 @@ public class Empleado {
         this.rolDelEmpleado = rolDelEmpleado;
     }
 
+    public Empresa getEmpresaid() {
+        return empresaid;
+    }
 
+    public void setEmpresaid(Empresa empresaid) {
+        this.empresaid = empresaid;
+    }
 }
