@@ -13,8 +13,10 @@ public class MovimientoDinero extends Empleado{
     private int monto;
     @Column(name = "concepto")
     private String concepto;
-    @Column(name = "empleado")
-    private String empleado;
+
+    @ManyToOne
+    @JoinColumn(name = "empleadoid")
+    private Empleado empleado;
 
     public MovimientoDinero(){
         super();
@@ -23,7 +25,6 @@ public class MovimientoDinero extends Empleado{
 
 
     public MovimientoDinero(int monto,String concepto){
-        this.empleado = super.getNombre();
         this.monto = monto;
         this.concepto = concepto;
 
@@ -56,11 +57,11 @@ public class MovimientoDinero extends Empleado{
     }
 
 
-    public String getEmpleado() {
+    public Empleado getEmpleado() {
         return empleado;
     }
 
-    public void setEmpleado(String empleado) {
+    public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
     }
 }
