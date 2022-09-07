@@ -6,6 +6,8 @@ import com.example.mvcapp.services.EmpresaService;
 import com.example.mvcapp.services.Response;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+
 //indico que esta clase funciona como controlador
 @RestController
 public class EmpresaController {
@@ -20,7 +22,7 @@ public class EmpresaController {
     }
 
     @RequestMapping("enterprises")
-    public Response consultarEmpresa(){
+    public ArrayList<Empresa> consultarEmpresa(){
         return this.empresaService.getEmpresa();
     }
 
