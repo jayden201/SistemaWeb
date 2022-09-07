@@ -4,6 +4,7 @@ import com.example.mvcapp.informacionEmpresa.Empresa;
 import com.example.mvcapp.repository.IEmpresaRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 
@@ -18,12 +19,8 @@ public class EmpresaService {
     }
 
     //Metodo para realizar peticion (GET) a la empresa en la logica servicio
-    public Response getEmpresa(){
-        Response response = new Response();
-        this.empresaRepository.findAll();
-        response.setCode(200);
-        response.setMessage("datos Obtenidos correctamente");
-        return response;
+    public ArrayList<Empresa> getEmpresa(){
+        return (ArrayList<Empresa>) this.empresaRepository.findAll();
     }
 
 
