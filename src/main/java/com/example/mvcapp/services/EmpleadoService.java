@@ -75,6 +75,7 @@ public class EmpleadoService {
         existe.setIdEmpleado(empleado.getIdEmpleado());
         existe.setCorreoElectronico(empleado.getCorreoElectronico());
         existe.setRolDelEmpleado(empleado.getRolDelEmpleado());
+        existe.setEmpresaid(empleado.getEmpresaid());
 
 
         this.empleadoRepository.save(existe);
