@@ -72,9 +72,9 @@ public class EmpleadoService {
 
         //Actualiza los datos de cada atributo ingresado
         existe.setNombre(empleado.getNombre());
-        existe.setIdEmpleado(empleado.getIdEmpleado());
         existe.setCorreoElectronico(empleado.getCorreoElectronico());
         existe.setRolDelEmpleado(empleado.getRolDelEmpleado());
+        existe.setEmpresaid(empleado.getEmpresaid());
 
 
         this.empleadoRepository.save(existe);

@@ -11,8 +11,6 @@ public class Empleado {
     private int id;
     @Column(name = "nombre")
     private String nombre;
-    @Column(name = "idEmpleado")
-    private int idEmpleado;
     @Column(name = "correoElectronico")
     private String correoElectronico;
     @ManyToOne
@@ -38,13 +36,7 @@ public class Empleado {
         this.nombre = nombre;
     }
 
-    public int getIdEmpleado() {
-        return idEmpleado;
-    }
 
-    public void setIdEmpleado(int idEmpleado) {
-        this.idEmpleado = idEmpleado;
-    }
 
     public String getCorreoElectronico() {
         return correoElectronico;
@@ -62,5 +54,11 @@ public class Empleado {
         this.rolDelEmpleado = rolDelEmpleado;
     }
 
+    public Empresa getEmpresaid() {
+        return empresaid;
+    }
 
+    public void setEmpresaid(Empresa empresaid) {
+        this.empresaid = empresaid;
+    }
 }
