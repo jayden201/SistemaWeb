@@ -19,31 +19,31 @@ public class EmpresaController {
         this.empresaService = empresaService;
     }
 
-    @RequestMapping("enterprises")
+    @RequestMapping("users")
     public Response consultarEmpresa(){
         return this.empresaService.getEmpresa();
     }
 
     //controlador para insertar una empresa nueva.
-    @PostMapping("enterprises")
+    @PostMapping("users")
     public Response createEmpresa(@RequestBody Empresa request){
         return this.empresaService.createEmpresa(request);
     }
 
     //Controlador para buscar Empresa ingresando su Id
-    @RequestMapping("enterprises/{id}")
+    @RequestMapping("users/{id}")
     public Empresa ConsultarEmpresaId(@PathVariable int id){
         return this.empresaService.consultarEmpresaById(id);
     }
 
     //COntrolador para eliminar Empresa Utilizando Id
-    @DeleteMapping("enterprises/{id}")
+    @DeleteMapping("users/{id}")
     public Response deleteEmpresa(@PathVariable int id){
         return this.empresaService.deleteEmpresa(id);
     }
 
     //Controlador para actualizar datos que jala de EmpresaSercice el metodo actualizarEmpresa
-    @PutMapping("enterprises")
+    @PutMapping("users")
     public Response actualizarEmpresa(@RequestBody Empresa empresa){
         return this.empresaService.actualizarEmpresa(empresa);
     }

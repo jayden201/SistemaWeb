@@ -15,8 +15,9 @@ public class Empleado {
     private int idEmpleado;
     @Column(name = "correoElectronico")
     private String correoElectronico;
-    @Column(name = "empresaEnQueTrabaja")
-    private Empresa empresaEnQueTrabaja;
+    @ManyToOne
+    @JoinColumn(name = "empresaid")
+    private Empresa empresaid;
     // private Empresa empresaEnQueTrabaja;
     @Column(name = "rolDelEmpleado")
     private String rolDelEmpleado;

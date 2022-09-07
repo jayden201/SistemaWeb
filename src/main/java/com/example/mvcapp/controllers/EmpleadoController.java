@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public class EmpleadoController {
     private EmpleadoService empleadoService;
     public EmpleadoController(EmpleadoService empleadoService){
+
         this.empleadoService = empleadoService;
     }
     @RequestMapping("enterprises")

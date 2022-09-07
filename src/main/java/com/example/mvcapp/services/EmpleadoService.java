@@ -2,9 +2,10 @@ package com.example.mvcapp.services;
 
 import com.example.mvcapp.informacionEmpresa.Empleado;
 import com.example.mvcapp.repository.IEmpleadoRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-
+@Service
 public class EmpleadoService {
     private IEmpleadoRepository empleadoRepository;
 
