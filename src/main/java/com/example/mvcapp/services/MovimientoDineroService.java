@@ -1,10 +1,12 @@
 package com.example.mvcapp.services;
 
+
 import com.example.mvcapp.informacionEmpresa.MovimientoDinero;
 import com.example.mvcapp.repository.IMovimientoDineroRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 public class MovimientoDineroService {
@@ -25,5 +27,16 @@ public class MovimientoDineroService {
         response.setMessage("Movimiento Registrado");
         return response;
 
+    }
+
+    public MovimientoDinero selectById(int Id){
+
+        Optional <MovimientoDinero> existe = this.repository.consultaMovimiento(Id);
+        if(existe.isPresent()){
+            return existe.get();
+        }
+        else {
+            return null;
+        }
     }
 }

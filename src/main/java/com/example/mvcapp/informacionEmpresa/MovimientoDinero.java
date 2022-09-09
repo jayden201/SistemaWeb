@@ -14,9 +14,10 @@ public class MovimientoDinero extends Empleado{
     @Column(name = "concepto")
     private String concepto;
 
+
     @ManyToOne
-    @JoinColumn(name = "empleadoid")
-    private Empleado empleado;
+    @JoinColumn(name = "empresaid",insertable = false,updatable = false)
+    private Empresa empresa;
 
     public MovimientoDinero(){
         super();
@@ -57,11 +58,12 @@ public class MovimientoDinero extends Empleado{
     }
 
 
-    public Empleado getEmpleado() {
-        return empleado;
+
+    public Empresa getEmpresa() {
+        return empresa;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 }
