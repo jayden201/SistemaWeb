@@ -20,8 +20,8 @@ public class MovimientoDineroService {
         return (ArrayList<MovimientoDinero>) this.repository.findAll();
     }
 
-    public Response createMovimiento(MovimientoDinero data){
-        this.repository.save(data);
+    public Response createMovimiento(int monto, String concepto, int empresa){
+        this.repository.crearMovimientoId(monto,concepto,empresa);
         Response response = new Response();
         response.setCode(200);
         response.setMessage("Movimiento Registrado");
@@ -38,5 +38,28 @@ public class MovimientoDineroService {
         else {
             return null;
         }
+    }
+
+    public Response deleteMovementIdEmpresa(int Id){
+        Response response = new Response();
+        try {
+            this.repository.deleteMovimientoIdEmpresa(Id);
+            response.setCode(200);
+            response.setMessage("Movimiento Eliminado eliminado exitosamente");
+            return response;
+        }
+        catch (Exception ex){
+            response.setCode(500);
+            response.setMessage("Error "+ ex.getMessage());
+            return response;
+        }
+    }
+    public Response updateMovement(MovimientoDinero data,int Id){
+        Response response = new Response();
+        MovimientoDinero exists = selectById(Id);
+        this.repository.save(exists);
+        response.setCode(200);
+        response.setMessage("Movimiento Modificado");
+        return response;
     }
 }

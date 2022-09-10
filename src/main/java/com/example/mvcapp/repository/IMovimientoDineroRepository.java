@@ -12,4 +12,13 @@ public interface IMovimientoDineroRepository extends JpaRepository<MovimientoDin
 
     @Query("SELECT u from MovimientoDinero u where u.empresaid = ?1")
     Optional<MovimientoDinero> consultaMovimiento (int empresaid);
+
+    @Query("INSERT INTO MovimientoDinero (monto,concepto,empresaid) VALUES (?1,?2,?3)" )
+    Optional<MovimientoDinero> crearMovimientoId (int monto, String concepto, int empresaid);
+
+    @Query("DELETE FROM MovimientoDinero WHERE empresaid=?1 " )
+    Optional<MovimientoDinero> deleteMovimientoIdEmpresa (int empresaid);
 }
+
+
+
