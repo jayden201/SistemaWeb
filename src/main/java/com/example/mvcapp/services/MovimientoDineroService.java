@@ -31,7 +31,7 @@ public class MovimientoDineroService {
 
     public MovimientoDinero selectById(int Id){
 
-        Optional <MovimientoDinero> existe = this.repository.consultaMovimiento(Id);
+        Optional<MovimientoDinero> existe = this.repository.findById(Id);
         if(existe.isPresent()){
             return existe.get();
         }
@@ -54,10 +54,10 @@ public class MovimientoDineroService {
             return response;
         }
     }
-    public Response updateMovement(MovimientoDinero data,int Id){
+    public Response updateMovement(int id, String concepto, int monto){
+
+        this.repository.updateMovementId(concepto,monto,id);
         Response response = new Response();
-        MovimientoDinero exists = selectById(Id);
-        this.repository.save(exists);
         response.setCode(200);
         response.setMessage("Movimiento Modificado");
         return response;
