@@ -19,6 +19,10 @@ public class MovimientoDinero {
     @JoinColumn(name = "empresaid",insertable = false,updatable = false)
     private Empresa empresa;
 
+    @ManyToOne
+    @JoinColumn(name = "empleadoid", insertable = false,updatable = false)
+    private Empleado empleado;
+
     public MovimientoDinero(){
         super();
     }
@@ -65,5 +69,13 @@ public class MovimientoDinero {
 
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
+    }
+
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 }

@@ -16,9 +16,9 @@ public interface IMovimientoDineroRepository extends JpaRepository<MovimientoDin
     @Query(value = "SELECT u from MovimientoDinero u where u.empresaid = ?1",nativeQuery = true)
     ArrayList<MovimientoDinero> consultaMovimiento (int empresaid);
     @Modifying
-    @Query(value = "INSERT INTO MovimientoDinero (monto,concepto,empresaid) VALUES (:monto,:concepto,:empresaid)" ,nativeQuery = true)
+    @Query(value = "INSERT INTO MovimientoDinero (monto,concepto,empresaid,empleadoid) VALUES (:monto,:concepto,:empresaid,:empleado)" ,nativeQuery = true)
     @Transactional
-    void crearMovimientoId (int monto, String concepto, int empresaid);
+    void crearMovimientoId (int empleado,int monto, String concepto, int empresaid);
 
     @Modifying
     @Query(value = "DELETE FROM MovimientoDinero WHERE empresaid=?1 ",nativeQuery = true)

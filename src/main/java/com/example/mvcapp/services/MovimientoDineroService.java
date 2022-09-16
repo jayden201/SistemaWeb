@@ -17,11 +17,12 @@ public class MovimientoDineroService {
     }
 
     public ArrayList<MovimientoDinero> selectAll(){
+
         return (ArrayList<MovimientoDinero>) this.repository.findAll();
     }
 
-    public Response createMovimiento(int monto, String concepto, int empresa){
-        this.repository.crearMovimientoId(monto,concepto,empresa);
+    public Response createMovimiento(int empleado,int monto, String concepto, int empresa){
+        this.repository.crearMovimientoId(empleado,monto,concepto,empresa);
         Response response = new Response();
         response.setCode(200);
         response.setMessage("Movimiento Registrado");

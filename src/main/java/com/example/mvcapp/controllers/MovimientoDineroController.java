@@ -24,7 +24,7 @@ public class MovimientoDineroController {
         }
     @PostMapping("/enterprises/{id}/movements")
     public Response createMovement(@RequestBody MovimientoDinero request,@PathVariable int id){
-        return this.service.createMovimiento(request.getMonto(),request.getConcepto(),id);
+        return this.service.createMovimiento(request.getEmpleado().getId(),request.getMonto(),request.getConcepto(),id);
     }
 
     @DeleteMapping("/enterprises/{id}/movements")
@@ -35,6 +35,10 @@ public class MovimientoDineroController {
     @PatchMapping("/enterprises/{id}/movements")
     public Response updateMovement( @PathVariable int id,@RequestBody MovimientoDinero request){
         return this.service.updateMovement(id,request.getConcepto(),request.getMonto());
+    }
+    @RequestMapping("/enterprises/allmovements")
+    public ArrayList<MovimientoDinero> getMovements(){
+        return this.service.selectAll();
     }
 
 
