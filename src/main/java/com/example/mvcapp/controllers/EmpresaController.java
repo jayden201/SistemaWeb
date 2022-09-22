@@ -4,12 +4,16 @@ package com.example.mvcapp.controllers;
 import com.example.mvcapp.informacionEmpresa.Empresa;
 import com.example.mvcapp.services.EmpresaService;
 import com.example.mvcapp.services.Response;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 
 //indico que esta clase funciona como controlador
-@RestController
+//
+// @RestController
+@Controller
 public class EmpresaController {
 
     //Agrego propiedad de tipo EmpresaService llamada empresa service para poder trabajar con la logica de negocio
@@ -27,10 +31,10 @@ public class EmpresaController {
     }
 
     //controlador para insertar una empresa nueva.
-    @PostMapping("enterprises")
+  /*  @PostMapping("enterprises")
     public Response createEmpresa(@RequestBody Empresa request){
         return this.empresaService.createEmpresa(request);
-    }
+    } */
 
     //Controlador para buscar Empresa ingresando su Id
     @RequestMapping("enterprises/{id}")
@@ -49,6 +53,31 @@ public class EmpresaController {
     public Response actualizarEmpresa(@RequestBody Empresa empresa){
         return this.empresaService.actualizarEmpresa(empresa);
     }
+
+    @GetMapping("inicio")
+    public String inicio(){
+        return "inicio/incio";
+    }
+
+    @GetMapping("crearempresa")
+    public String crearempresa(){
+        return "empresa/crearempresa";
+    }
+
+    //controlador para insertar una empresa nueva.
+   @PostMapping("company")
+    public RedirectView createEmpresa(Empresa data){
+        Response response = this.empresaService.createEmpresa(data);
+        return new RedirectView("crearempresa");
+    }
+
+
+
+
+
+
+
+
 
 
 }

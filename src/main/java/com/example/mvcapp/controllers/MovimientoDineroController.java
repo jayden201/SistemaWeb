@@ -3,11 +3,13 @@ package com.example.mvcapp.controllers;
 import com.example.mvcapp.informacionEmpresa.MovimientoDinero;
 import com.example.mvcapp.services.MovimientoDineroService;
 import com.example.mvcapp.services.Response;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
-@RestController
+//@RestController
+@Controller
 
 public class MovimientoDineroController {
 
@@ -18,7 +20,7 @@ public class MovimientoDineroController {
     }
 
     @RequestMapping("/enterprises/{id}/movements")
-    public MovimientoDinero  getMovementsByIdEmpresa(@PathVariable int id){
+    public MovimientoDinero getMovementsByIdEmpresa(@PathVariable int id){
 
             return this.service.selectById(id);
         }
@@ -33,13 +35,23 @@ public class MovimientoDineroController {
     }
 
     @PatchMapping("/enterprises/{id}/movements")
-    public Response updateMovement( @PathVariable int id,@RequestBody MovimientoDinero request){
-        return this.service.updateMovement(id,request.getConcepto(),request.getMonto());
+    public Response updateMovement(@RequestBody MovimientoDinero request, @PathVariable int id){
+        return this.service.updateMovement(id, request.getConcepto(), request.getMonto());
     }
     @RequestMapping("/enterprises/allmovements")
     public ArrayList<MovimientoDinero> getMovements(){
-        return this.service.selectAll();
+        return null;
+       // return this.service.selectAll();
     }
+
+    @RequestMapping("create1")
+    public String create(){
+        return "empresa/create";
+    }
+
+
+
+
 
 
     }
