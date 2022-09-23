@@ -3,7 +3,7 @@ package com.example.mvcapp.informacionEmpresa;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Empleado")
+@Table(name = "empleado")
 public class Empleado {
 
     @Id

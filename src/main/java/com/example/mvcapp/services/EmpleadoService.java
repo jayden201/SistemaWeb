@@ -4,6 +4,7 @@ import com.example.mvcapp.informacionEmpresa.Empleado;
 import com.example.mvcapp.repository.IEmpleadoRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 @Service
 public class EmpleadoService {
@@ -13,6 +14,9 @@ public class EmpleadoService {
         this.empleadoRepository = empleadoRepository;
     }
 
+    public ArrayList<Empleado> selectAll(){
+        return (ArrayList<Empleado>) this.empleadoRepository.findAll();
+    }
     //Metodo para realizar peticion (GET) al empleado en la logica servicio
     public Response getEmpleado(){
         Response response = new Response();

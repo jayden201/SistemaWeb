@@ -3,7 +3,7 @@ package com.example.mvcapp.informacionEmpresa;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Empresa")
+@Table(name = "empresa")
 public class Empresa {
 
     @Id
@@ -14,10 +14,9 @@ public class Empresa {
     @Column(name = "direccionEmpresa")
     private String direccionEmpresa;
     @Column(name = "telefonoEmpresa")
-    private int telefonoEmpresa;
+    private String telefonoEmpresa;
     @Column(name = "nitEmpresa")
-    private int nitEmpresa;
-
+    private String nitEmpresa;
 
     public int getId() {
         return id;
@@ -43,19 +42,20 @@ public class Empresa {
         this.direccionEmpresa = direccionEmpresa;
     }
 
-    public int getTelefonoEmpresa() {
+    public String getTelefonoEmpresa() {
         return telefonoEmpresa;
     }
 
-    public void setTelefonoEmpresa(int telefonoEmpresa) {
+    public void setTelefonoEmpresa(String telefonoEmpresa) {
         this.telefonoEmpresa = telefonoEmpresa;
     }
 
-    public int getNitEmpresa() {
+    public String getNitEmpresa() {
         return nitEmpresa;
     }
 
-    public void setNitEmpresa(int nitEmpresa) {
+    public void setNitEmpresa(String nitEmpresa) {
         this.nitEmpresa = nitEmpresa;
     }
 }
+

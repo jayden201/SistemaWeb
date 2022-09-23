@@ -17,7 +17,9 @@ public class EmpresaService {
     public EmpresaService(IEmpresaRepository empresaRepository){
         this.empresaRepository = empresaRepository;
     }
-
+    public ArrayList<Empresa> selectAll(){
+        return (ArrayList<Empresa>) this.empresaRepository.findAll();
+    }
     //Metodo para realizar peticion (GET) a la empresa en la logica servicio
     public ArrayList<Empresa> getEmpresa(){
         return (ArrayList<Empresa>) this.empresaRepository.findAll();

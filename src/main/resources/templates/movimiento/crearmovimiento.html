@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{master}">
+
+<head>
+</head>
+
+<body>
+
+
+<div layout:fragment="content">
+  <div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+      <h1 class="h3 mb-0 text-gray-800">MOVIMIENTO</h1>
+
+    </div>
+
+    <form action="/enterprises/registermovement" method="post" >
+      <div class="mt-8 container text-center">
+          <div class="form-group row">
+              <div class="col-sm-3"></div>
+               <div class="col-sm-6 mb-3 mb-sm-0">
+                <label class="form-label">Ingrese Movimiento</label>
+               </div>
+          </div>
+
+          <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input name="monto" type="text" class="form-control form-control-user"
+                         placeholder="Ingrese Monto">
+              </div>
+              <div class="col-sm-6">
+                  <input name="concepto" type="text" class="form-control form-control-user"
+                         placeholder="Concepto Movimiento">
+              </div>
+          </div>
+
+
+          <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                  <select name="empresaid" class="form-control">
+                      <option>Seleccione empresa</option>
+
+                      <option  th:each="emp : ${empresas}" th:value="${emp.Id}" th:text="${emp.nombreEmpresa}"></option>
+                  </select>
+              </div>
+              <div class="col-sm-6">
+                  <select name="empleadoid" class="form-control">
+                      <option>Seleccione empleado</option>
+
+                      <option  th:each="em : ${empleados}" th:value="${em.Id}" th:text="${em.nombre}"></option>
+                  </select>
+              </div>
+          </div>
+
+                <div class="row">
+                  <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <!--   <a href="/tipodocumento/index" class="btn btn-danger">Cancelar</a> -->
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+
+            </div>
+            <!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+</div>
+</body>
+
+</html>

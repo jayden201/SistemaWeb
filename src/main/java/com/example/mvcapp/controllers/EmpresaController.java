@@ -56,10 +56,10 @@ public class EmpresaController {
 
     @GetMapping("inicio")
     public String inicio(){
-        return "inicio/incio";
+        return "inicio/inicio";
     }
 
-    @GetMapping("crearempresa")
+    @GetMapping ("crearempresa")
     public String crearempresa(){
         return "empresa/crearempresa";
     }
@@ -68,6 +68,7 @@ public class EmpresaController {
    @PostMapping("company")
     public RedirectView createEmpresa(Empresa data){
         Response response = this.empresaService.createEmpresa(data);
+        System.out.println(data.getNombreEmpresa());
         return new RedirectView("crearempresa");
     }
 

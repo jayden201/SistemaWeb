@@ -3,8 +3,8 @@ package com.example.mvcapp.informacionEmpresa;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "Movimiento")
-public class MovimientoDinero extends Empleado{
+@Table(name = "movimientodinero")
+public class MovimientoDinero{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,18 +29,18 @@ public class MovimientoDinero extends Empleado{
 
 
 
-    public MovimientoDinero(int monto,String concepto){
-        this.monto = monto;
-        this.concepto = concepto;
+    public MovimientoDinero(int monto,String concepto,Empleado empleado,Empresa empresa){
+        this.setMonto(monto);
+        this.setConcepto(concepto);
+        this.setEmpleado(empleado);
+        this.setEmpresa(empresa);
 
     }
 
-    @Override
     public int getId() {
         return id;
     }
 
-    @Override
     public void setId(int id) {
         this.id = id;
     }
@@ -60,8 +60,6 @@ public class MovimientoDinero extends Empleado{
     public void setConcepto(String concepto) {
         this.concepto = concepto;
     }
-
-
 
     public Empresa getEmpresa() {
         return empresa;
