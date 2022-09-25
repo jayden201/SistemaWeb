@@ -18,8 +18,9 @@ public class MovimientoDineroService {
         this.repository = rep;
     }
 
-    public ArrayList<MovimientoDinero> getMovimiento(){
 
+
+    public ArrayList<MovimientoDinero> getMovimiento(){
         return (ArrayList<MovimientoDinero>) this.repository.findAll();
     }
 
@@ -62,14 +63,6 @@ public class MovimientoDineroService {
             return response;
         }
     }
-
-
-
-
-
-
-
-
 
     public MovimientoDinero selectById(int Id){
 

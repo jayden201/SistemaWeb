@@ -84,6 +84,18 @@ public class MovimientoDineroController {
             return new RedirectView("/enterprises/crearmovimiento");
         }
     }
+
+    @GetMapping ("consultamovimientos")
+    public String consultamovimientos(){
+        return "movimiento/movimientosregistrados";
+    }
+
+
+    @GetMapping("movimientos")
+    public String movimientosregistrados(Model movimientos){
+        ArrayList<MovimientoDinero> movimientosDB = this.getMovements();
+        return "/useradmin/usuariosregistrados";
+    }
     }
 
 
