@@ -19,19 +19,26 @@
             <table class="table table-bordered dataTable">
                 <thead>
                 <tr>
+                    <th>Concepto</th>
+                    <th>Monto</th>
                     <th>Empleado</th>
                     <th>Empresa</th>
-                    <th>Movimiento</th>
-                    <th>Concepto</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="usr : ${/enterprises/allmovements}">
-                    <td th:text="${usr.empleadoid}"></td>
-                    <td th:text="${usr.empresaid}"></td>
-                    <td th:text="${usr.monto}"></td>
-                    <td th:text="${usr.concepto}"></td>
-
+                <tr th:each="mov : ${movimientos}">
+                    <td th:text="${mov.concepto}"></td>
+                    <td th:text="${mov.monto}"></td>
+                    <td>
+                    <select disabled name="empleado" class="form-control">
+                        <option  th:each="emp : ${empleados}" th:value="${emp.id}" th:text="${emp.nombre}"></option>
+                    </select>
+                    </td>
+                    <td>
+                    <select disabled name="empresa" class="form-control">
+                        <option  th:each="empr : ${empresas}" th:value="${empr.id}" th:text="${empr.nombreEmpresa}"></option>
+                    </select>
+                    </td>
                     <!--  <td>
                       <a class="btn btn-primary" th:href="@{/admin/edituser/{postId}(postId=${usr.id})}">
                             Editar

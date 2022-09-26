@@ -86,7 +86,14 @@ public class MovimientoDineroController {
     }
 
     @GetMapping ("consultamovimientos")
-    public String consultamovimientos(){
+    public String consultamovimientos(Model movimientos){
+        ArrayList<MovimientoDinero> movimientosDB = this.service.getMovimiento();
+        ArrayList<Empresa> empresas = this.empresaService.selectAll();
+        ArrayList<Empleado> empleados = this.empleadoService.selectAll();
+        movimientos.addAttribute("movimientos",movimientosDB);
+        movimientos.addAttribute("empresas",empresas);
+        movimientos.addAttribute("empleados",empleados);
+        System.out.println(movimientos.getAttribute("movimientos"));
         return "movimiento/movimientosregistrados";
     }
 

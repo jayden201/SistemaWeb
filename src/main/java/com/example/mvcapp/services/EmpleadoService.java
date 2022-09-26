@@ -87,4 +87,8 @@ public class EmpleadoService {
         return response;
 
     }
+    public Empleado selectByUserName(String username){
+        Empleado existe = this.empleadoRepository.finByUserName(username);
+        return existe;
+    }
 }
