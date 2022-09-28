@@ -54,10 +54,10 @@ public class EmpresaController {
         return this.empresaService.actualizarEmpresa(empresa);
     }
 
-    @GetMapping("inicio")
+   /* @GetMapping("inicio")
     public String inicio(){
         return "inicio/inicio";
-    }
+    }  */
 
     @GetMapping ("crearempresa")
     public String crearempresa(){

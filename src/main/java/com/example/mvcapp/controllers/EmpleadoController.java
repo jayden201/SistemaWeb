@@ -57,13 +57,13 @@ public class EmpleadoController {
         Response response = this.empleadoService.createEmpleado(data);
         return new RedirectView("crearempleado");
     }
-    @GetMapping("/")
+   /* @GetMapping("/")
     public String root(){
         return "login";
     }
     @GetMapping("login")
     public String login(){
         return "login";
-    }
+    }  */
 
 }

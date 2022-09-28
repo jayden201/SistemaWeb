@@ -21,6 +21,19 @@ public class User {
     @Column(name = "correoelectronico")
     private String correoElectronico;
 
+    @ManyToOne
+    @JoinColumn(name = "tipodocuemntoid") //relacion entre dos tablas
+    private TipoDocumento tipoDocumento;   //tipo objeto
+
+    public TipoDocumento getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(TipoDocumento tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+
 
     @Column(name = "perfil")
     private EnumPerfil perfil;
