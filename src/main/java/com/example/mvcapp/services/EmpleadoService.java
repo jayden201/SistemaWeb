@@ -91,4 +91,25 @@ public class EmpleadoService {
         Empleado existe = this.empleadoRepository.finByUserName(username);
         return existe;
     }
+
+    public Response loginEmpleado(String correo){
+        Response response = new Response();
+        ArrayList<Empleado> existe = this.empleadoRepository.validaCredenciales(correo);
+
+        //Validamos password
+        if(existe != null && existe.size() > 0){
+            response.setCode(200);
+            response.setMessage("Usuario autenticado exitosamente.");
+            return  response;
+        }
+        else{
+            response.setCode(500);
+            response.setMessage("Usuario  no autenticado exitosamente.");
+            return  response;
+        }
+
+
+
+
+    }
 }

@@ -2,7 +2,6 @@ package com.example.mvcapp.controllers;
 
 
 import com.example.mvcapp.informacionEmpresa.Empleado;
-import com.example.mvcapp.informacionEmpresa.Empresa;
 import com.example.mvcapp.services.EmpleadoService;
 import com.example.mvcapp.services.Response;
 import org.springframework.stereotype.Controller;
@@ -65,5 +64,7 @@ public class EmpleadoController {
     public String login(){
         return "login";
     }  */
+
+
 
 }

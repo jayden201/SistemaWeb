@@ -29,25 +29,8 @@
                 <tr th:each="mov : ${movimientos}">
                     <td th:text="${mov.concepto}"></td>
                     <td th:text="${mov.monto}"></td>
-                    <td>
-                    <select disabled name="empleado" class="form-control">
-                        <option  th:each="emp : ${empleados}" th:value="${emp.id}" th:text="${emp.nombre}"></option>
-                    </select>
-                    </td>
-                    <td>
-                    <select disabled name="empresa" class="form-control">
-                        <option  th:each="empr : ${empresas}" th:value="${empr.id}" th:text="${empr.nombreEmpresa}"></option>
-                    </select>
-                    </td>
-                    <!--  <td>
-                      <a class="btn btn-primary" th:href="@{/admin/edituser/{postId}(postId=${usr.id})}">
-                            Editar
-                        </a>
-
-                        <a th:href="@{/admin/deleteuser/{postId}(postId=${usr.id})}" class="btn btn-success" >
-                            Eliminar
-                        </a>
-                    </td>    -->
+                    <td th:text="${mov.empresa.nombreEmpresa}"></td>
+                    <td th:text="${mov.empleado.nombre}"></td>
                 </tr>
                 </tbody>
             </table>
